@@ -6,3 +6,4 @@ This is a basic To Do List app I built using React, Material UI, and a Firebase 
 ## Demo
 
 ![Adding To Do](addingtodos.gif)
+![Deleting To Dos](deletingtodos.gif)
