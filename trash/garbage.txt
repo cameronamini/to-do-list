@@ -1,0 +1,22 @@
+App.js    
+// const deleteItem = (index) => {
+    //   const todoListCopy = [...todos]
+    //   const reducedTodoList = todoListCopy.splice(index)
+    //   setTodos(reducedTodoList)
+    //   
+
+
+         //   db.batch().commit()
+
+Todo.js
+
+                                //tabIndex={-1}
+                                //disableRipple
+                                //inputProps={{ 'aria-labelledby': labelId }}
+
+
+                    {/* <ListItemSecondaryAction>               */}
+                    {/* <IconButton edge="end" aria-label="delete" onClick={()=>props.deleteItem(props.id)}>
+                        <DeleteIcon fontSize="small" />
+                    </IconButton> */}
+                    {/* </ListItemSecondaryAction> */}

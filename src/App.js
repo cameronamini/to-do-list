@@ -11,9 +11,7 @@ import EcoIcon from '@material-ui/icons/Eco'
 
 export default function App() {
     const [todos, setTodos] = useState([]);
-
     const [textInput, settextInput] = useState('')
-
 
     useEffect(() => {
       db.collection(`to-dos`).orderBy("task_id").onSnapshot(snapshot => {
@@ -22,7 +20,6 @@ export default function App() {
       })
     }, [])
       
-    
     const updateInput = (e) => {
       const newInput = e.target.value
       settextInput(newInput)
@@ -42,11 +39,6 @@ export default function App() {
     
     } 
   
-    // const deleteItem = (index) => {
-    //   const todoListCopy = [...todos]
-    //   const reducedTodoList = todoListCopy.splice(index)
-    //   setTodos(reducedTodoList)
-    //   }
     const completeItem = (taskNumber) => {
         db.collection('to-dos').get()
         .then( querySnapshot => {
@@ -54,14 +46,9 @@ export default function App() {
                 var docref= db.collection('to-dos').doc(document.id) 
                 if (document.data().task_id === taskNumber) {
                     console.log(document.data().task_id)
-                    docref.delete()  ///i'm curious what hapens if i don't do this in a batch, but instead just delete the doc ie  docref.delete()
-                 
-                }
-        
-
-                
-            })
-         //   db.batch().commit()
+                    docref.delete() 
+                }         
+              })
         })
     }
     const deleteAllItems = () => {
@@ -70,15 +57,12 @@ export default function App() {
             .then( querySnapshot => {
                 querySnapshot.forEach(document => {
                     var docref= db.collection('to-dos').doc(document.id) 
-                    docref.delete()  ///i'm curious what hapens if i don't do this in a batch, but instead just delete the doc ie  docref.delete()
+                    docref.delete()  
                 })
-           //     db.batch().commit()
             })
     }
-
     
-    const currentDate = moment().format('dddd, MMMM Do YYYY')
-  
+    const currentDate = moment().format('dddd, MMMM Do YYYY')  
   
     const todoList = todos.map(object => {
       return(
@@ -88,8 +72,6 @@ export default function App() {
         taskName={object.task} 
         isCompleted={object.isCompleted} 
         completeItem={completeItem}
-       // deleteItem={deleteItem}
-  
       /> 
      )
    }) 
@@ -107,7 +89,6 @@ export default function App() {
                             </IconButton>
                         </Toolbar>
                     </AppBar> 
-                    
                   </Grid>
               </Grid>
 
@@ -122,11 +103,8 @@ export default function App() {
                                 placeholder="New task"
                                 value={textInput}
                                 onChange={updateInput} />
-                        
                         </FormControl>
-                        
                         <Button disabled={!textInput} variant="contained" color="primary" type="submit" > Add </Button>
-                            
                     </form>
                 </div>
               </Grid>
@@ -143,11 +121,8 @@ export default function App() {
                     <Button variant="outlined" size="small" onClick={deleteAllItems}> Clear </Button>  
                 </div>
                 
-
-            </Grid>
-            
+              </Grid>
           </Grid>
-
       </div>
     );
   }
