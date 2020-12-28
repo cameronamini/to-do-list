@@ -4,8 +4,10 @@ This is a basic To Do List app I built using React, Material UI, and a Firebase 
 
 
 ## Demo
-Adding at task:
+#### Adding a task:
 ![Adding To Do](addingtodos.gif)
 
-Deleting and clearing tasks:
+
+
+##### Deleting and clearing tasks:
 ![Deleting To Dos](deletingtodos.gif)
